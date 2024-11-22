@@ -5,7 +5,7 @@ import Facilities from "@/components/Home/facilities";
 import MenCollection from "@/components/Home/men_collection";
 import Offer from "@/components/Home/offer";
 import Layout from "@/components/Layout/Layout";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
