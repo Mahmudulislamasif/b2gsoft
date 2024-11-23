@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
 
 const products = [
   {
@@ -139,30 +140,28 @@ const products = [
 
 const BigDeals = () => {
   // Divide products into chunks of 8
-  const chunkedProducts = [];
-  for (let i = 0; i < products.length; i += 8) {
-    chunkedProducts.push(products.slice(i, i + 8));
-  }
 
   return (
     <div className="bg-[#F6F5FD] py-10 relative big-deals">
       <div className="container mx-auto px-4">
         {/* Header */}
+        <div className="flex justify-between">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-custom-darkGray">Big Deal</h2>
         </div>
-
+        <div className="flex -mt-2 gap-2">
+              <div className="button-prev-slide right-0   grid place-items-center text-white rounded-full">
+                <FaRegArrowAltCircleLeft className="text-custom-violet  opacity-60 text-3xl cursor-pointer" />
+              </div>
+              <div className="button-next-slide  grid place-items-center text-white rounded-full">
+                <FaRegArrowAltCircleRight className="text-custom-violet opacity-60 text-3xl cursor-pointer" />
+              </div>
+            </div>
+        </div>
         {/* Swiper */}
         <div className="relative">
           {/* Custom Navigation Arrows */}
-          <div className="absolute top-0 right-0 flex gap-4 z-10">
-            <div className="button-prev-slide w-10 h-10 flex justify-center items-center rounded-full bg-white shadow-lg border border-purple-300 cursor-pointer">
-              <span className="text-purple-500 text-lg">←</span>
-            </div>
-            <div className="button-next-slide w-10 h-10 flex justify-center items-center rounded-full bg-white shadow-lg border border-purple-300 cursor-pointer">
-              <span className="text-purple-500 text-lg">→</span>
-            </div>
-          </div>
+          
 
           <Swiper
             slidesPerView={1}
@@ -173,11 +172,11 @@ const BigDeals = () => {
             }}
             modules={[Navigation]}
           >
-            {chunkedProducts.map((productChunk, index) => (
+            {products.slice(0, 7).map((product, index) => (
               <SwiperSlide key={index}>
                 {/* Grid with 8 Products (4 in the upper row, 4 in the lower row) */}
-                <div className="grid grid-cols-4 gap-6">
-                  {productChunk.map((product) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                  {products.slice(0, 8).map((product) => (
                     <div
                       key={product.id}
                       className="bg-white rounded-lg shadow p-4 relative"

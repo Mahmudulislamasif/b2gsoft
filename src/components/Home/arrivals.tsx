@@ -25,19 +25,19 @@ const products = [
   {
     id: 2,
     image: image2,
-    title: "Silk Saree",
+    title: "Hoodie",
     price: "BDT 3,200",
   },
   {
     id: 3,
     image: image3,
-    title: "Cotton Saree",
+    title: "Plazu",
     price: "BDT 1,800",
   },
   {
     id: 4,
     image: image4,
-    title: "Handloom Saree",
+    title: "Jacket",
     price: "BDT 2,700",
   },
   {
@@ -57,7 +57,7 @@ const products = [
 const Arrivals = () => {
   return (
     <div className="bg-[#F6F5FD]">
-      <div className="container mx-auto py-10">
+      <div className="container mx-auto py-12">
         <div className="px-2">
           <div className="flex justify-between">
             <div className="mb-6">
@@ -103,7 +103,7 @@ const Arrivals = () => {
             className="relative"
           >
             {products.map((product) => (
-              <SwiperSlide>
+              <SwiperSlide key={product.id}>
                 <div key={product.id} className="bg-white p-2 rounded-xl">
                   <div className="bg-[#F6F5FD] rounded-xl">
                     <div className="relative w-full h-[280px] group overflow-hidden rounded-xl">
@@ -116,7 +116,7 @@ const Arrivals = () => {
                       />
                     </div>
                   </div>
-                  <div className="py-4 flex justify-between">
+                  <div className="py-5 flex justify-between">
                     <p className="text-base font-normal text-custom-darkGray">
                       {product.title}
                     </p>

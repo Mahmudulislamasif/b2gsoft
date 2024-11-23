@@ -56,7 +56,7 @@ const Product = () => {
         </Swiper>
 
         {/* Thumbnail Swiper */}
-        <Swiper
+        {/* <Swiper
           onSwiper={setThumbsSwiper}
           modules={[Thumbs]}
           spaceBetween={10}
@@ -92,7 +92,7 @@ const Product = () => {
               className="rounded-lg object-cover cursor-pointer border hover:border-purple-500"
             />
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
       </div>
 
       {/* Product Details Section */}

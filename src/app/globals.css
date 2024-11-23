@@ -35,9 +35,26 @@ body {
 }
 .bg-facilities
 {
-  background-image: url("../../public/arrivals/15.svg");
+  background-image: url("../../public/arrivals/15.png");
   background-repeat: no-repeat;
   background-size: cover;
+
  
 }
 
+
+.men-collection .swiper-pagination-bullet
+{
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+}
+.men-collection .swiper-pagination-bullet-active
+{
+  width: 32px;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #f0d11b,#ffc750);
+  box-shadow: 0 0 20px 0 rgba(255,200,80,0.7);
+  transition: all 0.8s ease-in-out;
+}
