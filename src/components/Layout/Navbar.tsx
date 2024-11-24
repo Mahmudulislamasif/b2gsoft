@@ -3,10 +3,12 @@ import Image from "next/image";
 import { useState } from "react";
 import Image1 from "../../../public/arrivals/logo2.png";
 import Image2 from "../../../public/arrivals/logo.png";
-import Image3 from "../../../public/arrivals/search.png";
+import Image3 from "../../../public/arrivals/logo3.png";
+import Image5 from "../../../public/arrivals/logo4.png";
+
 import Image4 from "../../../public/arrivals/shopping.png";
-import { MdOutlineMail } from "react-icons/md";
-import { RiAccountCircleLine, RiLockPasswordLine } from "react-icons/ri";
+import Link from "next/link";
+
 export default function Navbar() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
@@ -16,70 +18,74 @@ export default function Navbar() {
       {/* Mobile View */}
       <div className="md:hidden flex items-center justify-between px-4 py-3">
         {/* Drawer Toggle Button */}
-        <button
-          onClick={() => setDrawerOpen(true)}
-          className="text-gray-600 focus:outline-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
+        <div className="flex gap-2">
+          <button
+            onClick={() => setDrawerOpen(true)}
+            className="text-gray-600 focus:outline-none"
           >
-            <path
-              d="M4 5H16"
-              stroke="#141B34"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M4 12H20"
-              stroke="#141B34"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M4 19H12"
-              stroke="#141B34"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M4 5H16"
+                stroke="#141B34"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M4 12H20"
+                stroke="#141B34"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M4 19H12"
+                stroke="#141B34"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <div className="flex gap-2">
+            <Image src={Image3} alt="" width={31} height={18} />
+            <Image src={Image5} alt="" width={62} height={14} />
+          </div>
+        </div>
         {/* Logo */}
 
         {/* Search Toggle Button */}
-       <div className="flex gap-4 items-center">
-       <button onClick={() => setSearchOpen(!isSearchOpen)}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M17.5 17.5L22 22"
-              stroke="#1D1D1D"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
-              stroke="#1D1D1D"
-              strokeWidth="1.5"
-              strokeLinejoin="round"
-            />
-          </svg>
-
-        </button>
-        <Image src={Image4} alt="" width={24} height={23} />
+        <div className="flex gap-4 items-center">
+          <button onClick={() => setSearchOpen(!isSearchOpen)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M17.5 17.5L22 22"
+                stroke="#1D1D1D"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
+                stroke="#1D1D1D"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+          <Image src={Image4} alt="" width={24} height={23} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -100,7 +106,7 @@ export default function Navbar() {
               strokeWidth="1.21354"
             />
           </svg>
-       </div>
+        </div>
       </div>
 
       {/* Search Dropdown Animation */}
@@ -150,18 +156,18 @@ export default function Navbar() {
 
         {/* Drawer Menu Items */}
         <nav className="flex flex-col p-4 space-y-4">
-          <a href="#" className="text-gray-700 hover:text-purple-600">
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
             Home
-          </a>
-          <a href="#" className="text-gray-700 hover:text-purple-600">
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
             Shop
-          </a>
-          <a href="#" className="text-gray-700 hover:text-purple-600">
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
             Deals
-          </a>
-          <a href="#" className="text-gray-700 hover:text-purple-600">
-            What's New
-          </a>
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
+            What&#39;s New
+          </Link>
         </nav>
       </div>
 
@@ -177,18 +183,18 @@ export default function Navbar() {
         </div>
 
         <nav className="flex space-x-6">
-          <a href="#" className="text-gray-700 hover:text-purple-600">
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
             Home
-          </a>
-          <a href="#" className="text-gray-700 hover:text-purple-600">
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
             Shop
-          </a>
-          <a href="#" className="text-gray-700 hover:text-purple-600">
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
             Deals
-          </a>
-          <a href="#" className="text-gray-700 hover:text-purple-600">
-            What's New
-          </a>
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
+            What&#39;s New
+          </Link>
         </nav>
 
         <div className="flex space-x-4 items-center">

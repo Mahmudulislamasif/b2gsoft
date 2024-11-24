@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-cover bg-center h-[500px] lg:h-[600px] bg-banner mt-16s md:mt-16">
+    <section className="relative bg-cover bg-center h-[500px] lg:h-[600px] bg-banner mt-16 md:mt-16">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
