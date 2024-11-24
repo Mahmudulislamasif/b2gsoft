@@ -15,7 +15,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const roboto = Manrope({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope", // Add a CSS variable for Roboto
   weight: ["200","300","400","500","600","700","800"], // Specify desired font weights (e.g., 400 for regular, 700 for bold)
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${pacifico.variable}  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${pacifico.variable}  antialiased`}
       >
         {children}
       </body>

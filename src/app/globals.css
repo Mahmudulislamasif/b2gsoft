@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: var(--font-manrope);
+  font-family: var(--font-manrope) !important;
 }
 .offer {
   font-family: var(--font-pacifico);
@@ -39,14 +39,15 @@ body {
 
 .men-collection .swiper-pagination-bullet {
   width: 16px;
-  height: 16px;
-  background-color: white;
+  height: 8px;
+  background-color: red;
   border-radius: 50%;
 }
 .men-collection .swiper-pagination-bullet-active {
   width: 32px;
-  border-radius: 14px;
-  background: linear-gradient(120deg, #f0d11b, #ffc750);
+  height: 8px;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #7E53D4, #7E53D4);
   box-shadow: 0 0 20px 0 rgba(255, 200, 80, 0.7);
   transition: all 0.8s ease-in-out;
 }

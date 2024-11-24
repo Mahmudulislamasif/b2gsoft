@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
-
+import Image1 from "../../../public/arrivals/24.svg"
+import Image from "next/image";
+import { AiOutlineLike } from "react-icons/ai";
 const ReviewAndRating = () => {
   const [activeTab, setActiveTab] = useState("Review & Rating");
 
@@ -12,7 +14,7 @@ const ReviewAndRating = () => {
       comment: "Very Nice!!",
       rating: 4,
       likes: 10,
-      avatar: "/images/user-avatar.jpg", // Replace with an actual avatar path
+      avatar:Image1, // Replace with an actual avatar path
     },
     {
       id: 2,
@@ -21,7 +23,7 @@ const ReviewAndRating = () => {
       comment: "Very Nice!!",
       rating: 4,
       likes: 10,
-      avatar: "/images/user-avatar.jpg", // Replace with an actual avatar path
+      avatar: Image1, // Replace with an actual avatar path
     },
   ];
 
@@ -77,16 +79,18 @@ const ReviewAndRating = () => {
             {reviews.map((review) => (
               <div
                 key={review.id}
-                className="flex items-start space-x-4 border-b pb-4"
+                className="flex items-start space-x-4  pb-4"
               >
                 {/* Avatar */}
-                <img
+                <Image
+                  width={40}
+                  height={40}
                   src={review.avatar}
                   alt={review.user}
                   className="w-10 h-10 rounded-full object-cover"
                 />
                 <div className="flex-1">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
                     <h4 className="font-medium text-gray-800">{review.user}</h4>
                     <span className="text-sm text-gray-400">{review.date}</span>
                   </div>
@@ -110,14 +114,7 @@ const ReviewAndRating = () => {
                   <p className="mt-2 text-gray-700">{review.comment}</p>
                   <div className="mt-2 text-gray-500 text-sm flex items-center space-x-2">
                     <button className="flex items-center space-x-1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4 text-gray-400"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M14 9V5a5 5 0 00-10 0v4H3a1 1 0 000 2h1v8a1 1 0 001 1h12a1 1 0 001-1v-8h1a1 1 0 000-2h-1z" />
-                      </svg>
+                    <AiOutlineLike />
                       <span>{review.likes}</span>
                     </button>
                   </div>

@@ -12,6 +12,8 @@ import Image21 from "../../../public/arrivals/21.png";
 import Image22 from "../../../public/arrivals/22.png";
 import Image23 from "../../../public/arrivals/23.png";
 import Image from "next/image";
+import { IoIosStar } from "react-icons/io";
+import { FaRegStar } from "react-icons/fa";
 const Product = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperInstance | null>(null);
   const [selectedSize, setSelectedSize] = useState("S");
@@ -116,7 +118,7 @@ const Product = () => {
         {/* Product Details Section */}
         <div className="relative">
           {/* "Your bag" floating button */}
-          <div className="absolute top-8 right-4 z-50">
+          <div className="absolute top-8 right-0 ">
             <button className="flex items-center bg-purple-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-purple-700 transition">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -136,38 +138,26 @@ const Product = () => {
           {/* Main Product Section */}
           <div>
             {/* New Arrival Badge */}
-            <div className="inline-block bg-purple-600 text-white text-xs font-semibold uppercase py-1 px-4 rounded-tl-lg rounded-tr-lg">
+            <div className="inline-block bg-[#2F1C59] text-white text-base font-semibold uppercase py-1 px-8 rounded-lg">
               New Arrival
             </div>
 
             {/* Product Title */}
-            <h1 className="text-3xl font-bold text-gray-800 mt-4">
+            <h1 className="text-[33px] font-semibold text-gray-800 mt-4">
               White Hoodie
             </h1>
 
-            {/* Star Ratings and Reviews */}
+           <div>
+             {/* Star Ratings and Reviews */}
             <div className="flex items-center mt-2 space-x-2">
               {/* Star Ratings */}
-              <div className="flex items-center space-x-1 text-yellow-500">
-                {[...Array(4)].map((_, i) => (
-                  <svg
-                    key={i}
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M12 4.293l1.801 3.646 4.036.586-2.919 2.845.688 4.017L12 13.998l-3.606 1.889.688-4.017-2.919-2.845 4.036-.586L12 4.293z" />
-                  </svg>
-                ))}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-300"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 4.293l1.801 3.646 4.036.586-2.919 2.845.688 4.017L12 13.998l-3.606 1.889.688-4.017-2.919-2.845 4.036-.586L12 4.293z" />
-                </svg>
+              <div className="flex items-center  text-[#FFCF11] gap-1">
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStar />
+                <IoIosStar />
+                <FaRegStar />
+                
               </div>
 
               {/* Rating and Reviews */}
@@ -183,6 +173,12 @@ const Product = () => {
             <p className="text-2xl font-semibold text-gray-800 mt-4">
               BDT 2500
             </p>
+             <div className="mt-5">
+             <svg xmlns="http://www.w3.org/2000/svg" width="624" height="2" viewBox="0 0 624 2" fill="none">
+  <path d="M0 1H624" stroke="#CECECE" stroke-dasharray="2 2"/>
+</svg>
+             </div>
+           </div>
 
             {/* Available Sizes */}
             {/* Available Sizes and Colors */}
@@ -197,7 +193,7 @@ const Product = () => {
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`px-4 py-2 border rounded-full ${
+                      className={`px-4 py-2 border rounded-lg ${
                         selectedSize === size
                           ? "border-purple-600 text-purple-600 bg-purple-50"
                           : "border-gray-300 text-gray-800 hover:border-purple-400"
@@ -207,6 +203,7 @@ const Product = () => {
                     </button>
                   ))}
                 </div>
+               
               </div>
 
               {/* Spacer for small screens */}
@@ -224,8 +221,8 @@ const Product = () => {
                       onClick={() => setSelectedColor(color)}
                       className={`flex items-center px-4 py-2 border rounded-full ${
                         selectedColor === color
-                          ? "border-purple-600 text-purple-600 bg-purple-50"
-                          : "border-gray-300 text-gray-800 hover:border-purple-400"
+                          ? " text-purple-600 bg-purple-50"
+                          : " text-gray-800 hover:border-purple-400"
                       }`}
                     >
                       <span

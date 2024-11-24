@@ -5,13 +5,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
-
+import {
+  FaRegArrowAltCircleLeft,
+  FaRegArrowAltCircleRight,
+} from "react-icons/fa";
+import { IoIosStar } from "react-icons/io";
+import { FaRegStar } from "react-icons/fa6";
 const products = [
   {
     id: 1,
     image: "/arrivals/16.png",
-    title: "Woman wearing sari",
+    title: "Indian Sharee",
     price: "BDT 2,300",
     rating: 4.5,
     discount: "Up to 40%",
@@ -146,22 +150,23 @@ const BigDeals = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex justify-between">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-custom-darkGray">Big Deal</h2>
-        </div>
-        <div className="flex -mt-2 gap-2">
-              <div className="button-prev-slide right-0   grid place-items-center text-white rounded-full">
-                <FaRegArrowAltCircleLeft className="text-custom-violet  opacity-60 text-3xl cursor-pointer" />
-              </div>
-              <div className="button-next-slide  grid place-items-center text-white rounded-full">
-                <FaRegArrowAltCircleRight className="text-custom-violet opacity-60 text-3xl cursor-pointer" />
-              </div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-bold text-custom-darkGray">
+              Big Deal
+            </h2>
+          </div>
+          <div className="flex -mt-2 gap-2">
+            <div className="button-prev-slide right-0   grid place-items-center text-white rounded-full">
+              <FaRegArrowAltCircleLeft className="text-custom-violet  opacity-60 text-3xl cursor-pointer" />
             </div>
+            <div className="button-next-slide  grid place-items-center text-white rounded-full">
+              <FaRegArrowAltCircleRight className="text-custom-violet opacity-60 text-3xl cursor-pointer" />
+            </div>
+          </div>
         </div>
         {/* Swiper */}
         <div className="relative">
           {/* Custom Navigation Arrows */}
-          
 
           <Swiper
             slidesPerView={1}
@@ -179,14 +184,17 @@ const BigDeals = () => {
                   {products.slice(0, 8).map((product) => (
                     <div
                       key={product.id}
-                      className="bg-white rounded-lg shadow p-4 relative"
+                      className="bg-white rounded-lg shadow-md p-4 relative"
                     >
                       {/* Discount Tag */}
-                      <div className="absolute bg-purple-100 text-custom-violet text-xs font-bold rounded-full px-3 py-1 top-2 left-2">
-                        {product.discount}
+                      <div className="absolute bg-[#7E53D4] text-white text-xs font-bold px-2 py-1 right-4 top-4 rounded-es-full rounded-ee-full  flex items-center justify-center w-14 h-14 z-10">
+                        <span className="leading-tight text-center whitespace-pre-line">
+                          {product.discount.replace(/ /g, "\n")}
+                        </span>
                       </div>
+
                       {/* Product Image */}
-                      <div className="relative h-40 mb-4">
+                      <div className="relative  h-64 mb-4 bg-[#F6F5FD] rounded-lg overflow-hidden">
                         <Image
                           src={product.image}
                           alt={product.title}
@@ -195,21 +203,38 @@ const BigDeals = () => {
                           className="rounded-lg"
                         />
                       </div>
+
+                      {/* Ratings */}
+                      <div className="flex gap-2 items-center">
+                        <div className="flex text-yellow-400">
+                          {/* Use Icons for Dynamic Rating */}
+                          {[...Array(Math.floor(product.rating))].map(
+                            (_, i) => (
+                              <IoIosStar key={i} />
+                            )
+                          )}
+                          {[...Array(5 - Math.floor(product.rating))].map(
+                            (_, i) => (
+                              <FaRegStar key={i} />
+                            )
+                          )}
+                        </div>
+                        <p className="text-custom-black text-sm">(50)</p>
+                      </div>
+
                       {/* Product Info */}
                       <div className="text-center">
-                        <h4 className="text-lg font-semibold text-custom-darkGray">
-                          {product.title}
-                        </h4>
-                        <p className="text-lg font-bold text-custom-darkGray">
-                          {product.price}
-                        </p>
-                        {/* Ratings */}
-                        <div className="flex justify-center items-center gap-1 text-yellow-400 my-2">
-                          {"★".repeat(Math.floor(product.rating))}
-                          {"☆".repeat(5 - Math.floor(product.rating))}
+                        <div className="flex justify-between items-center mb-2">
+                          <h4 className="text-base font-medium text-custom-darkGray truncate">
+                            {product.title}
+                          </h4>
+                          <p className="text-lg font-bold text-custom-darkGray my-2">
+                            {product.price}
+                          </p>
                         </div>
+
                         {/* Add to Cart Button */}
-                        <button className="border border-custom-violet text-custom-violet rounded-lg py-2 w-full">
+                        <button className="border border-custom-violet text-custom-violet rounded-lg py-2 w-full hover:bg-custom-violet hover:text-white transition">
                           Add to Cart
                         </button>
                       </div>

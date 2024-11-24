@@ -7,8 +7,8 @@ import Image4 from "../../../public/arrivals/13.png"
 const Footer = () => {
   return (
     <div className="bg-custom-black">
-      <div className="container mx-auto px-2">
-        <div className="py-10">
+      <div className="container mx-auto px-4">
+        <div className="py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <Image
@@ -50,7 +50,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className=" mt-10 grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 text-white">
+          <div className=" mt-10 md:mt-20 grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 text-white gap-4">
             <div className="flex flex-col gap-3">
               <div className="text-base">
                 <p className=" font-bold ">Contact Us</p>

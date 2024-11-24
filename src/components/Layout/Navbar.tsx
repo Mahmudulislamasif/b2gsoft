@@ -134,9 +134,25 @@ export default function Navbar() {
         }`}
       >
         {/* Close Button */}
-        <button
+       <div className="flex justify-between">
+         {/* Drawer Menu Items */}
+         <nav className="flex flex-col p-4 space-y-4">
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
+            Home
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
+            Shop
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
+            Deals
+          </Link>
+          <Link href="#" className="text-gray-700 hover:text-purple-600">
+            What&#39;s New
+          </Link>
+        </nav>
+       <button
           onClick={() => setDrawerOpen(false)}
-          className="text-gray-600 p-4 focus:outline-none"
+          className="text-gray-600 p-4 focus:outline-none flex items-start"
         >
           <svg
             className="w-6 h-6"
@@ -154,21 +170,8 @@ export default function Navbar() {
           </svg>
         </button>
 
-        {/* Drawer Menu Items */}
-        <nav className="flex flex-col p-4 space-y-4">
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Home
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Shop
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Deals
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            What&#39;s New
-          </Link>
-        </nav>
+       
+       </div>
       </div>
 
       {/* Desktop View */}
