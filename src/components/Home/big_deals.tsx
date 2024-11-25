@@ -248,6 +248,9 @@ const BigDeals = () => {
           </Swiper>
         </div>
       </div>
+      <div className="bg-custom-violet text-white w-[120px]  mx-auto text-center rounded-xl py-2 mt-6">
+        <span> See more</span>
+      </div>
     </div>
   );
 };

@@ -12,7 +12,8 @@ const MenCollection = () => {
   return (
     <div className="bg-[#F6F5FD] pt-10">
       <div className="container mx-auto ">
-        <div className="men-collection relative">
+       <div className="px-3">
+       <div className="men-collection relative">
           <Swiper
             slidesPerView={1}
             pagination={{
@@ -26,16 +27,14 @@ const MenCollection = () => {
               <div className="grid md:grid-cols-12 items-center justify-center">
                 <div className="col-span-6">
                   {" "}
-                  <div className="bg-[#EEECFB]">
-                    <div className="relative w-full overflow-hidden mt-5 mx-auto md:mx-0 ">
-                      <Image
-                        src={image1}
-                        alt=""
-                        width={280}
-                        height={280}
-                        className="w-full object-cover transform  mx-auto md:mx-0"
-                      />
-                    </div>
+                  <div className="bg-[#EEECFB] relative">
+                    <Image
+                      src={image1}
+                      alt=""
+                      width={280}
+                      height={280}
+                      className="w-full object-cover transform  mx-auto md:mx-0 "
+                    />
                   </div>
                 </div>
                 <div className="col-span-6">
@@ -43,7 +42,7 @@ const MenCollection = () => {
                     <h1 className="text-[28px]  md:text-[48px]">
                       MEN'S Collection
                     </h1>
-                    <Button/>
+                    <Button />
                   </div>
                 </div>
               </div>
@@ -102,8 +101,9 @@ const MenCollection = () => {
               </div>
             </SwiperSlide>
           </Swiper>
-          <div className="swiper-pagination md:flex hidden justify-center items-center gap-2 absolute  mx-auto w-full"></div> 
+          <div className="swiper-pagination md:flex hidden justify-center items-center gap-2 absolute  mx-auto w-full"></div>
         </div>
+       </div>
       </div>
     </div>
   );

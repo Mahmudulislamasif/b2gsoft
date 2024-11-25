@@ -41,7 +41,7 @@ export default function Navbar() {
 
 
   return (
-    <header   className={`w-full fixed top-0 z-50 transition-all duration-300 ${
+    <header   className={`w-full fixed top-0 z-50 transition-all duration-300 px-3 ${
       isScrolled ? "bg-white shadow-md py-1" : "bg-[#F4F8FF] py-2"
     }`}>
       {/* Mobile View */}
