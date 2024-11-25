@@ -101,7 +101,7 @@ const Product = () => {
 
         {/* Product Details Section */}
         <div>
-          <div className="inline-block bg-purple-600 text-white text-xs font-semibold uppercase py-1 px-4 rounded-tl-lg rounded-tr-lg">
+          <div className="inline-block bg-[#2F1C59] text-white text-xs font-semibold uppercase py-2 px-4  rounded-lg">
             New Arrival
           </div>
 
@@ -143,20 +143,12 @@ const Product = () => {
           <p className="text-2xl font-semibold text-gray-800 mt-4">BDT 2500</p>
           <div className="relative mt-5">
             {/* Dashed Line */}
-            {/* <div className="w-full">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-full"
-                height="2"
-                viewBox="0 0 624 2"
-                fill="none"
-              >
-                <path d="M0 1H624" stroke="#CECECE" stroke-dasharray="2 2" />
-              </svg>
-            </div> */}
+            <div className="w-[85%] lg:w-full border-t border-dashed border-gray-400 "></div>
+
+
 
             {/* Your Bag Floating Button */}
-            <div className="bg-purple-600 absolute right-0 -bottom-11 hidden md:flex items-center justify-center flex-col w-24 h-24 rounded-xl shadow-lg text-white">
+            <div className="bg-purple-600 absolute right-0 -bottom-11 hidden lg:flex  items-center justify-center flex-col w-24 h-24 rounded-xl shadow-lg text-white">
               {/* Bag Icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -255,8 +247,9 @@ const Product = () => {
                 ))}
               </div>
             </div>
+            
           </div>
-
+          <div className="border-t border-dashed border-gray-400 mt-7 w-[85%]"></div>
           {/* Quantity Selector and Buttons */}
           <div className="mt-6">
             <h3 className="text-sm font-semibold text-gray-600">Quantity</h3>

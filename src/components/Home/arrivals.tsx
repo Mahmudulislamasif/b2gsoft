@@ -15,6 +15,7 @@ import {
   FaRegArrowAltCircleLeft,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
+import Link from "next/link";
 const products = [
   {
     id: 1,
@@ -103,6 +104,7 @@ const Arrivals = () => {
           >
             {products.map((product) => (
               <SwiperSlide key={product.id}>
+                <Link href={`/product/1`}>
                 <div key={product.id} className="bg-white p-2 rounded-xl" data-aos="flip-left">
                   <div className="bg-[#F6F5FD] rounded-xl">
                     <div>
@@ -129,6 +131,7 @@ const Arrivals = () => {
                     </button>
                   </div>
                 </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
