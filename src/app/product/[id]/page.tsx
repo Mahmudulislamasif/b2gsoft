@@ -1,3 +1,4 @@
+import Arrivals from "@/components/Home/arrivals";
 import Layout from "@/components/Layout/Layout";
 import Product from "@/components/product/details";
 import ReviewAndRating from "@/components/product/reviews";
@@ -8,6 +9,7 @@ const page = () => {
     <Layout>
       <Product />
       <ReviewAndRating />
+      <Arrivals/>
     </Layout>
   );
 };

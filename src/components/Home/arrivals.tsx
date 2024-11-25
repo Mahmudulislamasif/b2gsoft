@@ -11,11 +11,13 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { usePathname } from "next/navigation";
 import {
   FaRegArrowAltCircleLeft,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
 import Link from "next/link";
+import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
 const products = [
   {
     id: 1,
@@ -56,25 +58,29 @@ const products = [
 ];
 
 const Arrivals = () => {
+  const pathname = usePathname(); 
   return (
     <div className="bg-[#F6F5FD]">
-      <div className="container mx-auto py-12">
-        <div className="px-2">
+      <div className="container mx-auto py-6">
+        <div className="px-3">
           <div className="flex justify-between">
             <div className="mb-6">
-              <p className="text-[19px] font-normal text-custom-violet">
+             {pathname === "/" ? <> <p className="text-[19px] font-normal text-custom-violet">
                 FEATURED PRODUCT
               </p>
               <p className="text-custom-darkGray text-[28px] font-bold">
                 New Arrivals
-              </p>
+              </p></>:<p className="text-[28px] font-bold text-black">
+                Related Product
+              </p>}
             </div>
             <div className="flex -mt-2 gap-2">
-              <div className="button-prev-slide right-0   grid place-items-center text-white rounded-full">
-                <FaRegArrowAltCircleLeft className="text-custom-violet  opacity-60 text-3xl cursor-pointer" />
+              <div className="button-prev-slide mt-6 border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
+                <IoArrowBackOutline size={24} />
               </div>
-              <div className="button-next-slide  grid place-items-center text-white rounded-full">
-                <FaRegArrowAltCircleRight className="text-custom-violet opacity-60 text-3xl cursor-pointer" />
+              <div className="button-next-slide  mt-6 border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
+                <IoArrowForwardOutline size={24} />
+                
               </div>
             </div>
           </div>

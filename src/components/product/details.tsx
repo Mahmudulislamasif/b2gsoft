@@ -145,8 +145,6 @@ const Product = () => {
             {/* Dashed Line */}
             <div className="w-[85%] lg:w-full border-t border-dashed border-gray-400 "></div>
 
-
-
             {/* Your Bag Floating Button */}
             <div className="bg-purple-600 absolute right-0 -bottom-11 hidden lg:flex  items-center justify-center flex-col w-24 h-24 rounded-xl shadow-lg text-white">
               {/* Bag Icon */}
@@ -247,7 +245,6 @@ const Product = () => {
                 ))}
               </div>
             </div>
-            
           </div>
           <div className="border-t border-dashed border-gray-400 mt-7 w-[85%]"></div>
           {/* Quantity Selector and Buttons */}

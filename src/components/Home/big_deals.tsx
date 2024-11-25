@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
 import { FaRegStar } from "react-icons/fa6";
+import { IoArrowBackOutline, IoArrowForwardOutline } from "react-icons/io5";
 const products = [
   {
     id: 1,
@@ -155,14 +156,15 @@ const BigDeals = () => {
               Big Deal
             </h2>
           </div>
-          <div className="flex -mt-2 gap-2">
-            <div className="button-prev-slide right-0   grid place-items-center text-white rounded-full">
-              <FaRegArrowAltCircleLeft className="text-custom-violet  opacity-60 text-3xl cursor-pointer" />
+          <div className="flex gap-2 mb-2">
+              <div className="button-prev-slide border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
+                <IoArrowBackOutline size={24} />
+              </div>
+              <div className="button-next-slide border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
+                <IoArrowForwardOutline size={24} />
+                
+              </div>
             </div>
-            <div className="button-next-slide  grid place-items-center text-white rounded-full">
-              <FaRegArrowAltCircleRight className="text-custom-violet opacity-60 text-3xl cursor-pointer" />
-            </div>
-          </div>
         </div>
         {/* Swiper */}
         <div className="relative">
