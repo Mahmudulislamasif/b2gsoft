@@ -141,9 +141,52 @@ const Product = () => {
 
           {/* Price */}
           <p className="text-2xl font-semibold text-gray-800 mt-4">BDT 2500</p>
+          <div className="relative mt-5">
+            {/* Dashed Line */}
+            {/* <div className="w-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-full"
+                height="2"
+                viewBox="0 0 624 2"
+                fill="none"
+              >
+                <path d="M0 1H624" stroke="#CECECE" stroke-dasharray="2 2" />
+              </svg>
+            </div> */}
+
+            {/* Your Bag Floating Button */}
+            <div className="bg-purple-600 absolute right-0 -bottom-11 hidden md:flex items-center justify-center flex-col w-24 h-24 rounded-xl shadow-lg text-white">
+              {/* Bag Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+              >
+                <path
+                  d="M5.16402 22.6925L3.55927 13.1197C3.31663 11.6724 3.19532 10.9487 3.5838 10.4743C3.9723 10 4.68631 10 6.11435 10H25.886C27.314 10 28.028 10 28.4166 10.4743C28.805 10.9487 28.6836 11.6724 28.4411 13.1197L26.8363 22.6925C26.3044 25.8655 26.0384 27.4519 24.9526 28.3927C23.8668 29.3333 22.3015 29.3333 19.1711 29.3333H12.8293C9.69878 29.3333 8.13354 29.3333 7.0477 28.3927C5.96186 27.4519 5.69591 25.8655 5.16402 22.6925Z"
+                  stroke="#F6F5FD"
+                  strokeWidth="2.5"
+                />
+                <path
+                  d="M23.3332 10C23.3332 5.94993 20.05 2.66669 15.9998 2.66669C11.9497 2.66669 8.6665 5.94993 8.6665 10"
+                  stroke="#F6F5FD"
+                  strokeWidth="2.5"
+                />
+              </svg>
+
+              {/* Text */}
+              <div className="mt-2 text-center">
+                <p className="text-sm font-medium">Your bag</p>
+                <p className="text-lg font-bold">0</p>
+              </div>
+            </div>
+          </div>
 
           {/* Available Sizes and Colors */}
-          <div className="mt-6 flex flex-col md:flex-row items-center justify-between">
+          <div className="mt-6 flex flex-col md:flex-row items-start md:items-center justify-between">
             {/* Available Size */}
             <div className="flex-1">
               <h3 className="text-sm font-semibold text-gray-600">
@@ -154,7 +197,7 @@ const Product = () => {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 border rounded-full ${
+                    className={`px-4 py-2 border rounded-lg ${
                       selectedSize === size
                         ? "border-purple-600 text-purple-600 bg-purple-50"
                         : "border-gray-300 text-gray-800 hover:border-purple-400"
@@ -170,28 +213,45 @@ const Product = () => {
             <div className="w-full h-4 md:hidden"></div>
 
             {/* Available Color */}
-            <div className="flex-1">
+            <div className="flex-1 md:block hidden">
               <h3 className="text-sm font-semibold text-gray-600">
                 Available Color
               </h3>
               <div className="flex space-x-4 mt-2">
                 {["Off White", "Black"].map((color) => (
-                  <button
+                  <label
                     key={color}
-                    onClick={() => setSelectedColor(color)}
-                    className={`flex items-center px-4 py-2 border rounded-full ${
-                      selectedColor === color
-                        ? "border-purple-600 text-purple-600 bg-purple-50"
-                        : "border-gray-300 text-gray-800 hover:border-purple-400"
-                    }`}
+                    className="flex items-center space-x-2 cursor-pointer"
                   >
+                    <input
+                      type="radio"
+                      name="color"
+                      value={color}
+                      checked={selectedColor === color}
+                      onChange={() => setSelectedColor(color)}
+                      className="hidden"
+                    />
                     <span
-                      className={`block w-4 h-4 rounded-full mr-2 ${
-                        color === "Off White" ? "bg-gray-200" : "bg-black"
+                      className={`w-6 h-6 rounded-full border-2 ${
+                        selectedColor === color
+                          ? "border-purple-600"
+                          : "border-gray-300"
+                      } flex items-center justify-center`}
+                    >
+                      {selectedColor === color && (
+                        <span className="w-3 h-3 rounded-full bg-purple-600"></span>
+                      )}
+                    </span>
+                    <span
+                      className={`text-sm font-medium ${
+                        selectedColor === color
+                          ? "text-purple-600"
+                          : "text-gray-800"
                       }`}
-                    ></span>
-                    {color}
-                  </button>
+                    >
+                      {color}
+                    </span>
+                  </label>
                 ))}
               </div>
             </div>
@@ -218,11 +278,14 @@ const Product = () => {
               </button>
             </div>
 
-            <div className="mt-6 flex space-x-4">
-              <button className="flex-1 bg-purple-600 text-white py-3 rounded-full shadow-md hover:bg-purple-700 transition text-center">
+            <div className="mt-6 grid md:grid-cols-2 gap-4">
+              <button
+                className=" bg-purple-600 text-white py-3 rounded-lg
+               shadow-md hover:bg-purple-700 transition text-center"
+              >
                 Buy Now
               </button>
-              <button className="flex-1 border border-purple-600 text-purple-600 py-3 rounded-full shadow-md hover:bg-purple-100 transition text-center">
+              <button className=" border border-purple-600 text-purple-600 py-3 rounded-lg shadow-md hover:bg-purple-100 transition text-center">
                 Add to Cart
               </button>
             </div>

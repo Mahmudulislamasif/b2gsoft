@@ -1,17 +1,31 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation"; // Import the useRouter hook
+import Link from "next/link";
+
 import Image1 from "../../../public/arrivals/logo2.png";
 import Image2 from "../../../public/arrivals/logo.png";
 import Image3 from "../../../public/arrivals/logo3.png";
-import Image5 from "../../../public/arrivals/logo4.png";
-
 import Image4 from "../../../public/arrivals/shopping.png";
-import Link from "next/link";
+import Image5 from "../../../public/arrivals/logo4.png";
 
 export default function Navbar() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
+  const pathname = usePathname(); 
+
+  // Menu items as an array
+  const menu = [
+    { name: "Home", path: "/" },
+    { name: "Shop", path: "/shop" },
+    { name: "Deals", path: "/deals" },
+    { name: "What's New", path: "/new" },
+  ];
+
+  // Helper function to check if a link is active
+  const isActive = (path: string): boolean => pathname === path;
+
 
   return (
     <header className="w-full shadow-md bg-[#F4F8FF] fixed top-0 z-50 px-2">
@@ -58,9 +72,8 @@ export default function Navbar() {
             <Image src={Image5} alt="" width={62} height={14} />
           </div>
         </div>
-        {/* Logo */}
 
-        {/* Search Toggle Button */}
+        {/* Search and Cart Buttons */}
         <div className="flex gap-4 items-center">
           <button onClick={() => setSearchOpen(!isSearchOpen)}>
             <svg
@@ -86,30 +99,10 @@ export default function Navbar() {
             </svg>
           </button>
           <Image src={Image4} alt="" width={24} height={23} />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="23"
-            viewBox="0 0 21 20"
-            fill="none"
-          >
-            <path
-              d="M6.18256 12.7734C5.03798 13.4549 2.03694 14.8465 3.86477 16.5879C4.75766 17.4386 5.7521 18.0469 7.00235 18.0469H14.1365C15.3868 18.0469 16.3813 17.4386 17.2741 16.5879C19.102 14.8465 16.1009 13.4549 14.9563 12.7734C12.2723 11.1751 8.86661 11.1751 6.18256 12.7734Z"
-              stroke="#1D1D1D"
-              strokeWidth="1.21354"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M14.2095 5.50696C14.2095 7.51762 12.5796 9.14758 10.5689 9.14758C8.55825 9.14758 6.92828 7.51762 6.92828 5.50696C6.92828 3.4963 8.55825 1.86633 10.5689 1.86633C12.5796 1.86633 14.2095 3.4963 14.2095 5.50696Z"
-              stroke="#1D1D1D"
-              strokeWidth="1.21354"
-            />
-          </svg>
         </div>
       </div>
 
-      {/* Search Dropdown Animation */}
+      {/* Search Dropdown */}
       {isSearchOpen && (
         <div className="absolute top-12 left-0 w-full bg-gray-100 shadow-md px-4 py-2 transition-all duration-300">
           <input
@@ -120,7 +113,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Drawer and Overlay */}
+      {/* Drawer Menu for Mobile */}
       <div
         className={`fixed inset-0 z-40 bg-black transition-opacity duration-300 ease-in-out ${
           isDrawerOpen ? "bg-opacity-50" : "bg-opacity-0 pointer-events-none"
@@ -133,128 +126,55 @@ export default function Navbar() {
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Close Button */}
-       <div className="flex justify-between">
-         {/* Drawer Menu Items */}
-         <nav className="flex flex-col p-4 space-y-4">
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Home
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Shop
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Deals
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            What&#39;s New
-          </Link>
+        {/* Drawer Links */}
+        <nav className="flex flex-col p-4 space-y-4">
+          {menu.map((item) => (
+            <Link
+              key={item.name}
+              href={item.path}
+              className={`text-gray-700 hover:text-purple-600 ${
+                isActive(item.path) && "text-purple-600 font-bold"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
         </nav>
-       <button
-          onClick={() => setDrawerOpen(false)}
-          className="text-gray-600 p-4 focus:outline-none flex items-start"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            ></path>
-          </svg>
-        </button>
-
-       
-       </div>
       </div>
 
       {/* Desktop View */}
       <div className="hidden md:flex items-center justify-between px-8 py-4">
-        <div className="text-xl font-bold text-gray-800">
-          <div className="text-xl font-bold text-gray-800">
-            <div className="flex gap-2">
-              <Image src={Image1} alt="" width={42} height={24} />
-              <Image src={Image2} alt="" width={83} height={19} />
-            </div>
-          </div>
+        {/* Logo */}
+        <div className="flex gap-2">
+          <Image src={Image1} alt="" width={42} height={24} />
+          <Image src={Image2} alt="" width={83} height={19} />
         </div>
 
+        {/* Navigation Links */}
         <nav className="flex space-x-6">
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Home
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Shop
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            Deals
-          </Link>
-          <Link href="#" className="text-gray-700 hover:text-purple-600">
-            What&#39;s New
-          </Link>
+          {menu.map((item) => (
+            <Link
+              key={item.name}
+              href={item.path}
+              className={`text-gray-700 hover:text-purple-600 ${
+                isActive(item.path) && "text-purple-600 font-bold"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
         </nav>
 
+        {/* Search and Cart */}
         <div className="flex space-x-4 items-center">
-          <div className="w-[100%] relative bg-white rounded-full">
-            <div className=" absolute top-3.5 left-4 text-[1.5rem] text-[#777777]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-              >
-                <path
-                  d="M9.68192 9.92328L12.109 12.3504"
-                  stroke="#1D1D1D"
-                  strokeWidth="1.21354"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M11.0291 6.41716C11.0291 3.73627 8.85584 1.56299 6.17494 1.56299C3.49406 1.56299 1.32077 3.73627 1.32077 6.41716C1.32077 9.09806 3.49406 11.2713 6.17494 11.2713C8.85584 11.2713 11.0291 9.09806 11.0291 6.41716Z"
-                  stroke="#1D1D1D"
-                  strokeWidth="1.21354"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
+          <div className="relative bg-white rounded-full">
             <input
               type="text"
-              name="text"
-              id="text"
               placeholder="Search"
-              className="peer  border rounded-full outline-none pl-9 pr-4 py-2 w-full transition-colors duration-300"
+              className="border rounded-full outline-none pl-9 pr-4 py-2 w-full"
             />
           </div>
           <Image src={Image4} alt="" width={24} height={23} />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="23"
-            viewBox="0 0 21 20"
-            fill="none"
-          >
-            <path
-              d="M6.18256 12.7734C5.03798 13.4549 2.03694 14.8465 3.86477 16.5879C4.75766 17.4386 5.7521 18.0469 7.00235 18.0469H14.1365C15.3868 18.0469 16.3813 17.4386 17.2741 16.5879C19.102 14.8465 16.1009 13.4549 14.9563 12.7734C12.2723 11.1751 8.86661 11.1751 6.18256 12.7734Z"
-              stroke="#1D1D1D"
-              strokeWidth="1.21354"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M14.2095 5.50696C14.2095 7.51762 12.5796 9.14758 10.5689 9.14758C8.55825 9.14758 6.92828 7.51762 6.92828 5.50696C6.92828 3.4963 8.55825 1.86633 10.5689 1.86633C12.5796 1.86633 14.2095 3.4963 14.2095 5.50696Z"
-              stroke="#1D1D1D"
-              strokeWidth="1.21354"
-            />
-          </svg>
         </div>
       </div>
     </header>
