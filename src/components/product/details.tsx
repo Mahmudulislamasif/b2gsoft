@@ -51,13 +51,13 @@ const Product = () => {
           >
             {images.map((src, index) => (
               <SwiperSlide key={index}>
-                <div className="relative w-full h-96">
+                <div>
                   <Image
                     src={src}
                     alt={`Product ${index}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
+                    width={580}
+                    height={507}
+                    className="rounded-lg object-cover"
                     priority={index === 0}
                   />
                 </div>
@@ -66,10 +66,10 @@ const Product = () => {
           </Swiper>
 
           {/* Custom Navigation Buttons with Icons */}
-          <button className="custom-prev absolute left-2 top-1/2 transform -translate-y-1/2 border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
+          <button className="custom-prev absolute -left-4 top-1/2 transform -translate-y-1/2 border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
             <IoArrowBackOutline size={24} />
           </button>
-          <button className="custom-next absolute right-2 top-1/2 transform -translate-y-1/2 border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
+          <button className="custom-next absolute -right-2 top-1/2 transform -translate-y-1/2 border-2 border-custom-violet text-custom-violet rounded-full w-10 h-10 flex items-center justify-center z-10 hover:bg-purple-700 hover:text-white">
             <IoArrowForwardOutline size={24} />
           </button>
 
