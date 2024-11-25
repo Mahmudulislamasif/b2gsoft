@@ -5,7 +5,7 @@ import React from "react";
 import image1 from "../../../public/arrivals/07.png";
 import image2 from "../../../public/arrivals/08.png";
 import image3 from "../../../public/arrivals/09.png";
-import image4 from "../../../public/arrivals/10.svg";
+import image4 from "../../../public/arrivals/10.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -98,7 +98,6 @@ const Arrivals = () => {
               nextEl: ".button-next-slide",
               prevEl: ".button-prev-slide",
             }}
-           
             modules={[Pagination, Autoplay, Navigation]}
             className="relative"
           >
@@ -106,12 +105,12 @@ const Arrivals = () => {
               <SwiperSlide key={product.id}>
                 <div key={product.id} className="bg-white p-2 rounded-xl">
                   <div className="bg-[#F6F5FD] rounded-xl">
-                    <div className="relative w-full h-[280px] group overflow-hidden rounded-xl">
+                    <div>
                       <Image
                         src={product.image}
                         alt={product.title}
-                        width={280}
-                        height={280}
+                        width={286}
+                        height={287}
                         className="w-full object-cover rounded-xl transform group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>
