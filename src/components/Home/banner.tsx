@@ -9,13 +9,22 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-[23px] lg:text-5xl font-bold mb-2">
+        <h1
+          className="text-[23px] lg:text-5xl font-bold mb-2"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        >
           Elevate Your Everyday Style
         </h1>
-        <p className="text-[13px] lg:text-[19px] mb-6">
+        <p
+          className="text-[13px] lg:text-[19px] mb-6"
+          data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom"
+        >
           Discover the Latest Trends in Sustainable Fashion
         </p>
-       <Button/>
+        <Button />
       </div>
     </section>
   );

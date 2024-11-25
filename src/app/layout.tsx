@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Manrope, Pacifico} from "next/font/google"; // Import Roboto from Google Fonts
 import "./globals.css";
+import { AOSInit } from "@/components/aosInit/aos_init";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,6 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+          <AOSInit/>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${pacifico.variable}  antialiased`}
       >

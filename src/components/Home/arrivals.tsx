@@ -103,7 +103,7 @@ const Arrivals = () => {
           >
             {products.map((product) => (
               <SwiperSlide key={product.id}>
-                <div key={product.id} className="bg-white p-2 rounded-xl">
+                <div key={product.id} className="bg-white p-2 rounded-xl" data-aos="flip-left">
                   <div className="bg-[#F6F5FD] rounded-xl">
                     <div>
                       <Image

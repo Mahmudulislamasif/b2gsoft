@@ -180,7 +180,7 @@ const BigDeals = () => {
             {products.slice(0, 7).map((product, index) => (
               <SwiperSlide key={index}>
                 {/* Grid with 8 Products (4 in the upper row, 4 in the lower row) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" data-aos="flip-right">
                   {products.slice(0, 8).map((product) => (
                     <div
                       key={product.id}
