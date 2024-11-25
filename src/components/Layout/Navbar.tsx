@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // Import the useRouter hook
 import Link from "next/link";
 
@@ -9,12 +9,25 @@ import Image2 from "../../../public/arrivals/logo.png";
 import Image3 from "../../../public/arrivals/logo3.png";
 import Image4 from "../../../public/arrivals/shopping.png";
 import Image5 from "../../../public/arrivals/logo4.png";
-
+import Image6 from "../../../public/arrivals/user.png";
 export default function Navbar() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname(); 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true); // Add scrolled class
+      } else {
+        setIsScrolled(false); // Remove scrolled class
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   // Menu items as an array
   const menu = [
     { name: "Home", path: "/" },
@@ -28,7 +41,9 @@ export default function Navbar() {
 
 
   return (
-    <header className="w-full shadow-md bg-[#F4F8FF] fixed top-0 z-50 px-2">
+    <header   className={`w-full fixed top-0 z-50 transition-all duration-300 ${
+      isScrolled ? "bg-white shadow-md py-1" : "bg-[#F4F8FF] py-2"
+    }`}>
       {/* Mobile View */}
       <div className="md:hidden flex items-center justify-between px-4 py-3">
         {/* Drawer Toggle Button */}
@@ -99,6 +114,7 @@ export default function Navbar() {
             </svg>
           </button>
           <Image src={Image4} alt="" width={24} height={23} />
+          <Image src={Image6} alt="" width={24} height={23} />
         </div>
       </div>
 
@@ -168,13 +184,37 @@ export default function Navbar() {
         {/* Search and Cart */}
         <div className="flex space-x-4 items-center">
           <div className="relative bg-white rounded-full">
+             <div className="absolute top-2 left-2">
+             <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M17.5 17.5L22 22"
+                stroke="#1D1D1D"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
+                stroke="#1D1D1D"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+            </svg>
+             </div>
             <input
               type="text"
               placeholder="Search"
-              className="border rounded-full outline-none pl-9 pr-4 py-2 w-full"
+              className="border rounded-full outline-none pl-10 pr-4 py-2 w-full"
             />
           </div>
           <Image src={Image4} alt="" width={24} height={23} />
+          <Image src={Image6} alt="" width={24} height={23} />
         </div>
       </div>
     </header>

@@ -5,7 +5,7 @@ import { MdPayment } from "react-icons/md";
 const Facilities = () => {
   return (
     <div className="bg-custom-violet opacity-90 p-2">
-      <div className="container mx-auto pt-5">
+      <div className="container mx-auto py-5">
         <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div>
             <div className="flex gap-4">
